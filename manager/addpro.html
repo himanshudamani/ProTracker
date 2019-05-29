@@ -158,11 +158,11 @@
                 <h3>Add New Project:</h3>
                 <form id="proInputForm">
                   <div class="form-group">
-                    <label for="proid">Project ID</label>
-                    <input type="number" class="form-control" id="proIdInput" placeholder="Enter Id Manually">
+                    <label for="proIdInput">Project ID</label>
+                    <input type="number" class="form-control" id="proIdInput" placeholder="Id will be generated Automatically">
                   </div>
                   <div class="form-group">
-                    <label for="proname">Project Name</label>
+                    <label for="proNameInput">Project Name</label>
                     <input type="text" class="form-control" id="proNameInput" placeholder="Enter Project Name">
                   </div>
                   <div class="form-group">
@@ -170,21 +170,23 @@
                     <input type="text" class="form-control" id="proDescInput" placeholder="Describe the issue ...">
                   </div>
                   <div class="form-group">
-                    <label for="proDescInput">Status</label>
+                    <label for="proStatusInput">Status</label>
                      <select class="form-control" id="proStatusInput">
-                      <option value="Low">Open</option>
-                      <option value="Medium">InProcess</option>
-                      <option value="High">Closed</option>
+                      <option value="Open">Open</option>
+                      <option value="InProcess">InProcess</option>
+                      <option value="Closed">Closed</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="proDescInput">Assigned To</label>
-                    <input type="number" class="form-control" id="proAssignedToInput" placeholder="Enter Employee UserID">
+                    <label for="proAssignedToInput">Assigned To</label>
+                    <input type="text" class="form-control" id="proAssignedToInput" placeholder="Enter Employee UserID">
                   </div>
-                  <button type="submit" class="btn btn-primary">Add</button>
+                  <button type="submit" class="btn btn-primary" onclick="savePro()">Add</button>
                 </form>
               </div>
+<div class="yaha">
 
+</div>
             </div>
         </div>
 
@@ -210,12 +212,12 @@
     <script src="../assets/js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+<script src="http://chancejs.com/chance.min.js"></script>
 
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="../assets/js/demo.js"></script>
+	<script src="../manager/js/addpro.js"></script>
 
 </html>
