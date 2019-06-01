@@ -158,22 +158,22 @@
                 <h3>Add New Employee:</h3>
                 <form id="userAddForm">
                   <div class="form-group">
-                    <label for="userid">Employee ID</label>
+                    <label for="userIdInput">Employee ID</label>
                     <input type="number" class="form-control" id="userIdInput" placeholder="Enter UserID">
                   </div>
                   <div class="form-group">
-                    <label for="userid">Name</label>
+                    <label for="uNameInput">Name</label>
                     <input type="text" class="form-control" id="uNameInput" placeholder="Enter Full Name of Employee">
                   </div>
                   <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="userNameInput">Username</label>
                     <input type="text" class="form-control" id="userNameInput" placeholder="Enter Username">
                   </div>
                   <div class="form-group">
-                    <label for="userAddForm">Password</label>
+                    <label for="userPwInput">Password</label>
                     <input type="password" class="form-control" id="userPwInput" placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-primary">Add</button>
+                  <button type="submit" class="btn btn-primary" onclick="addEmp()">Add</button>
                 </form>
               </div>
 
@@ -201,13 +201,10 @@
     <!--  Notifications Plugin    -->
     <script src="../assets/js/bootstrap-notify.js"></script>
 
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="../assets/js/demo.js"></script>
+	<script src="../manager/js/addemp.js"></script>
 
 </html>

@@ -14,13 +14,14 @@ function savePro(){
     status : proStatus,
     assignedTo : proAssignedTo
   }
+var projects = localStorage.getItem('projects');
 
-  if (localStorage.getItem('projects') === null) {
+  if ( projects === null) {
     var projects = [];
     projects.push(project);
-    localStorage.setItem('project', JSON.stringify(projects));
+    localStorage.setItem('projects', JSON.stringify(projects));
   } else {
-    var projects = JSON.parse(localStorage.getItem('projects'));
+    var projects = JSON.parse(projects);
     projects.push(project);
     localStorage.setItem('projects', JSON.stringify(projects));
   }
@@ -31,3 +32,20 @@ function savePro(){
 
 
 }
+
+
+//----Dropdown for assignedTo HTML
+
+var assignmentinnerhtml = "<option value='--select--'>--Select--</option>";
+var lengthOFDropDown = JSON.parse(localStorage.users).length;
+  for (var i = 0; i < lengthOFDropDown; i++) {
+
+    var issues = JSON.parse(localStorage.getItem('users'));
+    var user = issues.map( users => {
+        return users.name;
+    });
+
+  assignmentinnerhtml += "<option value=" + user + ">" + user + "</option>";
+  }
+
+document.getElementById('proAssignedToInput').innerHTML =  assignmentinnerhtml;
