@@ -1,12 +1,12 @@
 function savePro() {
-  var proId = document.getElementById('proIdInput').value;
+  //var proId = document.getElementById('proIdInput').value;
   var proName = document.getElementById('proNameInput').value;
   var proDesc = document.getElementById('proDescInput').value;
   var proStatus = document.getElementById('proStatusInput').value;
   var proAssignedTo = document.getElementById('proAssignedToInput').value;
 
   var project = {
-    id: proId,
+  //  id: proId,
     name: proName,
     description: proDesc,
     status: proStatus,
