@@ -5,3 +5,10 @@ selectEmpInnerHtml += JSON.parse(localStorage.users).map(
 );
 
 document.getElementById('selectEmp').innerHTML = selectEmpInnerHtml;
+
+//table name
+function empNameWrite(){
+  var e = document.getElementById("selectEmp");
+  var strUser = e.options[e.selectedIndex].value;
+  document.getElementById('empNameWrite').innerHTML= strUser;
+}

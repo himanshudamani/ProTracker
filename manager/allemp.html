@@ -152,11 +152,41 @@
             <div class="container-fluid">
 							<form class="form-inline">
 								<label for="selectEmp">Select Employee Name :</label>
-								<select class="form-control" id="selectEmp">
+								<select class="form-control" id="selectEmp" onchange="empNameWrite()">
 							</select>
 							</form>
+
+							<div class="row">
+                  <div class="col-md-12">
+                      <div class="card">
+                          <div class="header">
+                              <h4 class="title"> <span id="empNameWrite"></span> Employee Details</h4>
+                          </div>
+                          <div class="content table-responsive table-full-width">
+                              <table class="table table-hover table-striped">
+																<!-- task Id , name , descp, type, status, pro id, assignedTo, estd hrs, worked hrs, Remaining hrs, posted date, clossed date -->
+                                  <thead>
+                                    <th>Task Name</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Project Name</th>
+                                    <th>Assigned To</th>
+                                    <th>% Completed</th>
+                                    <th>Posted Date</th>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+																				<!-- td's -->
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
             </div>
+
         </div>
+      </div>
 
 
         <footer class="footer">
