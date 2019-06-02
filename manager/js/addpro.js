@@ -1,6 +1,4 @@
-
-
-function savePro(){
+function savePro() {
   var proId = document.getElementById('proIdInput').value;
   var proName = document.getElementById('proNameInput').value;
   var proDesc = document.getElementById('proDescInput').value;
@@ -8,15 +6,15 @@ function savePro(){
   var proAssignedTo = document.getElementById('proAssignedToInput').value;
 
   var project = {
-    id : proId,
-    name : proName,
-    description : proDesc,
-    status : proStatus,
-    assignedTo : proAssignedTo
-  }
-var projects = localStorage.getItem('projects');
+    id: proId,
+    name: proName,
+    description: proDesc,
+    status: proStatus,
+    assignedTo: proAssignedTo
+  };
+  var projects = localStorage.getItem('projects');
 
-  if ( projects === null) {
+  if (projects === null) {
     var projects = [];
     projects.push(project);
     localStorage.setItem('projects', JSON.stringify(projects));
@@ -26,26 +24,13 @@ var projects = localStorage.getItem('projects');
     localStorage.setItem('projects', JSON.stringify(projects));
   }
 
-
-
   document.getElementById('proInputForm').reset();
-
-
 }
-
 
 //----Dropdown for assignedTo HTML
 
-var assignmentinnerhtml = "<option value='--select--'>--Select--</option>";
-var lengthOFDropDown = JSON.parse(localStorage.users).length;
-  for (var i = 0; i < lengthOFDropDown; i++) {
-
-    var issues = JSON.parse(localStorage.getItem('users'));
-    var user = issues.map( users => {
-        return users.name;
-    });
-
-  assignmentinnerhtml += "<option value=" + user + ">" + user + "</option>";
-  }
-
-document.getElementById('proAssignedToInput').innerHTML =  assignmentinnerhtml;
+var assignmentInnerHtml = "<option value='--select--'>--Select--</option>";
+assignmentInnerHtml += JSON.parse(localStorage.users).map(
+  user => `<option value=${user.name}>${user.name}</option>`
+);
+document.getElementById('proAssignedToInput').innerHTML = assignmentInnerHtml;
