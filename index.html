@@ -17,17 +17,19 @@
                 <div class="row">
                     <div class="col-md-6 login-form-1">
                         <h3>Login for Manager</h3>
-                        <form action="manager.html" name="mangform">
+                        <form name="mangform" id="mangForm">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="email" placeholder="Your Email *" value="" required />
+                                <input type="text" class="form-control" name="email" placeholder="Your Email *" id="MangUname" required />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Your Password *" value="" required />
+                                <input type="password" class="form-control" name="password" placeholder="Your Password *" id="MangPw" required />
                             </div>
 
                             <div class="form-group">
-                                <input type="submit" class="btnSubmit" value="Login" />
+                                <input type="submit" class="btnSubmit" value="Login" onclick="checkMang()" />
                             </div>
+                            <!-- put username = himanshu <br>
+                            password can be anything -->
                             <!-- <div class="form-group">
                                 <a href="#" class="ForgetPwd">Forget Password?</a>
                             </div> -->
@@ -35,32 +37,59 @@
                     </div>
                     <div class="col-md-6 login-form-2">
                         <h3>Login for Employee</h3>
-                        <form action="employee.html" name="empform">
+                        <form name="empform" id="empForm">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="email" placeholder="Your Email *" value="" required />
+                                <input type="text" class="form-control" name="email" placeholder="Your Email *" id="EmpUname" required />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Your Password *" value="" required />
+                                <input type="password" class="form-control" name="password" placeholder="Your Password *" id="EmpPw" required />
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btnSubmit" value="Login" />
+                                <input type="submit" class="btnSubmit" value="Login" onclick="checkEmp()" />
                             </div>
+<!-- put username = RamKumar <br>
+password = employee -->
                             <!-- <div class="form-group">
-
                                 <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
                             </div> -->
                         </form>
                     </div>
                 </div>
             </div>
-            
+
             <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/6.0.2/firebase-app.js"></script>
+<!-- <script src="/__/firebase/6.0.2/firebase-app.js"></script> -->
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#reserved-urls -->
 
 <!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+<!-- <script src="/__/firebase/init.js"></script> -->
+
+<script type="text/javascript">
+  function checkEmp(){
+    var userName = document.getElementById('EmpUname').value;
+    var Pw = document.getElementById('EmpPw').value;
+
+    var getUsers =JSON.parse(localStorage.getItem("users")) ;
+
+    for (var i = 0; i < getUsers.length; i++) {
+    if (getUsers[i].username == userName && getUsers[i].password == Pw) {
+    document.getElementById('empForm').action = "/employee.html";
+    }
+  }
+  console.log('Please Enter Right Credentials');
+}
+
+function checkMang(){
+  var userName = document.getElementById('MangUname').value;
+  var Pw = document.getElementById('MangPw').value;
+
+  if (userName == 'himanshu') {
+    document.getElementById('mangForm').action = "/manager.html";
+  }
+}
+</script>
+
   </body>
 </html>

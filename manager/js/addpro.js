@@ -12,7 +12,7 @@ function savePro() {
     description: proDesc,
     status: proStatus,
     assignedTo: proAssignedTo,
-    date; date
+    date: date
   };
   var projects = localStorage.getItem('projects');
 
