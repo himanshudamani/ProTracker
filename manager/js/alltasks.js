@@ -27,7 +27,7 @@ if (getTasks[i].projectname == selectValue) {
   tasksTableInnerHtml += "<td>" + getTasks[i].atatus + "</td>";
   tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
   tasksTableInnerHtml += "<td>" + getTasks[i].orighrs + "</td>";
-  tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td></tr>";
+  tasksTableInnerHtml += "<td>" + getTasks[i].date + "</td></tr>";
 
   document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
 }

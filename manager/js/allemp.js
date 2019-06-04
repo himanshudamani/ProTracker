@@ -36,7 +36,7 @@ if (getTasks[i].assignedTo == selectedEmp) {
   EmpTableInnerHtml += "<td>" + getTasks[i].atatus + "</td>";
   EmpTableInnerHtml += "<td>" + getTasks[i].projectname + "</td>";
   EmpTableInnerHtml += "<td>" + getTasks[i].orighrs + "</td>";
-  EmpTableInnerHtml += "<td>" + getTasks[i].type + "</td></tr>";
+  EmpTableInnerHtml += "<td>" + getTasks[i].date + "</td></tr>";
 
   document.getElementById('EmpTable').innerHTML = EmpTableInnerHtml;
 }

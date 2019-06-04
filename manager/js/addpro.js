@@ -4,13 +4,15 @@ function savePro() {
   var proDesc = document.getElementById('proDescInput').value;
   var proStatus = document.getElementById('proStatusInput').value;
   var proAssignedTo = document.getElementById('proAssignedToInput').value;
+  var date = new Date();
 
   var project = {
   //  id: proId,
     name: proName,
     description: proDesc,
     status: proStatus,
-    assignedTo: proAssignedTo
+    assignedTo: proAssignedTo,
+    date; date
   };
   var projects = localStorage.getItem('projects');
 

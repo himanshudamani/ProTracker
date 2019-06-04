@@ -20,7 +20,7 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
   var tAssignedTo = document.getElementById('tAssignedToInput').value;
   var orighours = document.getElementById('orighoursInput').value;
   var tType = document.getElementById('tType').value;
-
+  var date = new Date();
 
   var task = {
     name: tName,
@@ -29,7 +29,8 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
     projectname: tPro,
     assignedTo: tAssignedTo,
     orighrs: orighours,
-    type: tType
+    type: tType,
+    date: date
   };
 
   var tasks = localStorage.getItem('tasks');
