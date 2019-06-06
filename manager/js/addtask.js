@@ -29,6 +29,7 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
     projectname: tPro,
     assignedTo: tAssignedTo,
     orighrs: orighours,
+    workedhrs: '0';
     type: tType,
     date: date
   };
