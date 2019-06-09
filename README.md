@@ -12,3 +12,6 @@ A Simple Project Tracker WebApp (On Process)
 - Add Employees For ProTracker
 - Tasks can be Assigned to an employee
 - Can View and edit stored tasks in two ways: Project-wise and Employee-wise
+
+
+(More To be updated soon)
