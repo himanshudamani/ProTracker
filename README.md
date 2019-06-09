@@ -4,7 +4,8 @@ A Simple Project Tracker WebApp (On Process)
 *Double Login:
   For Manager
   And For Employee*
-Manager are assigned manually and can:
+
+> Manager are assigned manually and can:
 
 - Add Project
 - Add Tasks to stored projects
