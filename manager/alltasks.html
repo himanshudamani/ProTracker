@@ -24,6 +24,11 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
   <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+	<style>
+		.toHide{
+			display: none;
+		}
+	</style>
 </head>
 <body>
 
@@ -175,7 +180,7 @@
 																		<div class="modal-body" id="taskDetails">
 																		</div>
 																		<div class="modal-footer">
-																			<button type="button" class="btn btn-md"><i class="pe-7s-pen"></i>Edit</button>
+																			<button type="button" class="btn btn-md" id="editTask" onclick="editTask()"><i class="pe-7s-pen"></i>Edit</button>
 																			<button type="button" class="btn btn-md" data-dismiss="modal"><i class="pe-7s-close"></i>Close</button>
 																		</div>
 																	</div>

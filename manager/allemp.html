@@ -21,9 +21,11 @@
   <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
 	<link rel="stylesheet" href="../assets/css/index.css">
-
-
-
+	<style>
+		.toHide{
+			display: none;
+		}
+	</style>
   <!--     Fonts and icons     -->
 	<link href="../assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -183,7 +185,8 @@
 																		<div class="modal-body" id="taskDetails">
 																		</div>
 																		<div class="modal-footer">
-																			<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+																			<button type="button" class="btn btn-md" id="editTask" onclick="editTask()"><i class="pe-7s-pen"></i>Edit</button>
+																			<button type="button" class="btn btn-md" data-dismiss="modal"><i class="pe-7s-close"></i>Close</button>
 																		</div>
 																	</div>
 																</div>
