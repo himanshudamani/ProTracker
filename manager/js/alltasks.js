@@ -164,8 +164,9 @@ function editTask(){
     closeddate: Cdate
   };
   var tasks = JSON.parse(localStorage.getItem('tasks'));
-  //tasks.push(task);
-  //localStorage.setItem('tasks', JSON.stringify(tasks));
+  tasks[0].description = "jhgjk hgjkgh";
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+
     Button.textContent = 'Edit';
   }
 }

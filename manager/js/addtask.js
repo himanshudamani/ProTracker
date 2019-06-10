@@ -21,18 +21,20 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
   var orighours = document.getElementById('orighoursInput').value;
   var tType = document.getElementById('tType').value;
   var date = new Date();
+  var id = (new Date).getTime();
 
   var task = {
-    name: tName,
-    description: tDesc,
-    status: tStatus,
-    projectname: tPro,
-    assignedTo: tAssignedTo,
-    orighrs: orighours,
-    workedhrs: '0',
-    type: tType,
-    date: date
-  };
+            id: id,
+            name: tName,
+            description: tDesc,
+            status: tStatus,
+            projectname: tPro,
+            assignedTo: tAssignedTo,
+            orighrs: orighours,
+            workedhrs: '0',
+            type: tType,
+            date: date
+      };
 
   var tasks = localStorage.getItem('tasks');
 

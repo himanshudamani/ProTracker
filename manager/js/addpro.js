@@ -5,9 +5,10 @@ function savePro() {
   var proStatus = document.getElementById('proStatusInput').value;
   var proAssignedTo = document.getElementById('proAssignedToInput').value;
   var date = new Date();
+  var id = (new Date).getTime();
 
   var project = {
-  //  id: proId,
+    id: id,
     name: proName,
     description: proDesc,
     status: proStatus,

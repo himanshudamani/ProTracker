@@ -1,11 +1,11 @@
 function addEmp(){
-//  var userId = document.getElementById('userIdInput').value;
+  var userId = (new Date).getTime();
   var uName = document.getElementById('uNameInput').value;
   var userName = document.getElementById('userNameInput').value;
   var upw = document.getElementById('userPwInput').value;
 
   var user = {
-  //  Id : userId,
+    id : userId,
     name : uName,
     username : userName,
     password : upw
