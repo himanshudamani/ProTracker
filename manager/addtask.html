@@ -158,39 +158,38 @@
                   </div>
                   <div class="form-group">
                     <label for="tDescInput">Description</label>
-										<textarea
-										class="form-control"
-										id="tDescInput"
-										rows="3"
-										placeholder="Describe the Task ...">
-									</textarea>
+				<textarea
+					class="form-control"
+					id="tDescInput"
+					rows="3"
+					placeholder="Describe the Task ...">
+				</textarea>
                   </div>
-									<div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="tStatusInput">Status</label>
-                     <select class="form-control" id="tStatusInput">
-                      <option value="Low">Open</option>
-                      <option value="Medium">InProcess</option>
-                      <option value="High">Closed</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="tProInput">Project Name</label>
-										<select class="form-control" id="tProInput">
-										</select>
-										<!-- <input
-										type="number"
-										class="form-control"
-										id="tProInput"
-										placeholder="Enter Project name associated"> -->
-                  </div>
-								</div>
+			<div class="form-row">
+                  	<div class="form-group col-md-3">
+                    		<label for="tStatusInput">Status</label>
+                     		<select class="form-control" id="tStatusInput">
+                      			<option value="Open">Open</option>
+                      			<option value="InProcess">InProcess</option>
+                      			<option value="Closed">Closed</option>
+                    		</select>
+                  	</div>
+                  	<div class="form-group col-md-4">
+                    		<label for="tProInput">Project Name</label>
+					<select class="form-control" id="tProInput">
+					</select>
+                  	</div>
+				<div class="form-group col-md-5">
+					<label for="tCdate">Closing Date</label>
+					<input type="date" class="form-control" id="tCdate">
+				</div>
+			</div>
 
-						<div class="form-row">
+		<div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="tAssignedToInput">Assigned To</label>
-									<select class="form-control" id="tAssignedToInput">
-									</select>
+				<select class="form-control" id="tAssignedToInput">
+				</select>
                 </div>
                 <div class="form-group col-md-4">
                   <label for="orighoursInput">Estimated Hours</label>
@@ -203,13 +202,13 @@
                     <option value="Impro">Improvement</option>
                   </select>
               </div>
-							</div>
-                <button
-									type="submit"
-									class="btn btn-primary"
-									onclick="saveTask()">
-									Add
-								</button>
+		</div>
+                  <button
+				type="submit"
+				class="btn btn-primary"
+				onclick="saveTask()">
+				Add
+			</button>
             </form>
           </div>
         </div>
@@ -233,11 +232,7 @@
   <!--  Notifications Plugin    -->
   <script src="../assets/js/bootstrap-notify.js"></script>
 
-  <!--  Google Maps Plugin    -->
-  <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
-
-  <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+ <script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 	<script src="../manager/js/addtask.js"></script>
 

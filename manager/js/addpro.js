@@ -1,11 +1,12 @@
 function savePro() {
-  //var proId = document.getElementById('proIdInput').value;
+
   var proName = document.getElementById('proNameInput').value;
   var proDesc = document.getElementById('proDescInput').value;
   var proStatus = document.getElementById('proStatusInput').value;
   var proAssignedTo = document.getElementById('proAssignedToInput').value;
-  var date = new Date();
+  var pdate = new Date();
   var id = (new Date).getTime();
+  var cdate = document.getElementById('proCdate').value;
 
   var project = {
     id: id,
@@ -13,8 +14,10 @@ function savePro() {
     description: proDesc,
     status: proStatus,
     assignedTo: proAssignedTo,
-    date: date
+    pdate: pdate,
+    cdate: cdate
   };
+
   var projects = localStorage.getItem('projects');
 
   if (projects === null) {

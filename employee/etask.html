@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -9,7 +9,6 @@
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
-
 
   <!-- Bootstrap core CSS     -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,7 +23,11 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
   <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
+  <style>
+      .toHide{
+  	    display: none;
+      }
+  </style>
 </head>
 <body>
 
@@ -44,11 +47,17 @@
                       <p>Dashboard</p>
                     </a>
             </li>
-            <li  class="active">
-                <a href="#">
-                  <i class="pe-7s-edit"></i>
-                  <p>Edit Your Status</p>
-                </a>
+		<li>
+              <a href="eproject.html">
+                <i class="pe-7s-edit"></i>
+                  <p>Manage Your Projects</p>
+              </a>
+            </li>
+  	    <li class="active">
+              <a href="#">
+                <i class="pe-7s-edit"></i>
+                  <p>Manage Your Tasks</p>
+              </a>
             </li>
             <li>
               <a href="empgantt.html">
@@ -97,7 +106,7 @@
   						<ul class="nav navbar-nav navbar-right">
 
                         <li>
-                            <a href="../index.html">
+                            <a href="../index.html" onclick="logout()">
                                 <p>Log out</p>
                             </a>
                         </li>
@@ -119,19 +128,37 @@
                           <div class="content table-responsive table-full-width">
                               <table class="table table-hover table-striped">
                                   <thead>
-																		<!-- task Id , name , descp, type, status, pro id, assignedTo, estd hrs, worked hrs, Remaining hrs, posted date, clossed date -->
+						<!-- task Id , name , descp, type, status, pro id, assignedTo, estd hrs, worked hrs, Remaining hrs, posted date, clossed date -->
                                     <th>Task Name</th>
                                     <th>Type</th>
                                     <th>Status</th>
                                     <th>Project Name</th>
-																		<th>% Completed</th>
+						<th>% Completed</th>
                                     <th>Posted Date</th>
                                     <th></th>
                                   </thead>
                                   <tbody id="EmpTable">
-
                                   </tbody>
                               </table>
+
+					<!-- TrModal Modal -->
+					<div id="trModal" class="modal fade" role="dialog">
+						<div class="modal-dialog modal-lg" role="content">
+						<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Task Details</h4>
+								</div>
+								<div class="modal-body" id="taskDetails">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-md" id="editTask" onclick="editTask()"><i class="pe-7s-pen"></i>Edit</button>
+									<button type="button" class="btn btn-md" data-dismiss="modal"><i class="pe-7s-close"></i>Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
 
                           </div>
                       </div>
@@ -164,7 +191,7 @@
     <script src="../assets/js/bootstrap-notify.js"></script>
 
     <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
@@ -172,6 +199,6 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="../assets/js/demo.js"></script>
 
-
+	<script src="../employee/js/etask.js"></script>
 
 </html>

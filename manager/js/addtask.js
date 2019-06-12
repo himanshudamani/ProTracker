@@ -20,8 +20,9 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
   var tAssignedTo = document.getElementById('tAssignedToInput').value;
   var orighours = document.getElementById('orighoursInput').value;
   var tType = document.getElementById('tType').value;
-  var date = new Date();
+  var pdate = new Date();
   var id = (new Date).getTime();
+  var cdate = document.getElementById('tCdate').value;
 
   var task = {
             id: id,
@@ -32,8 +33,10 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
             assignedTo: tAssignedTo,
             orighrs: orighours,
             workedhrs: '0',
+            rmhrs: orighours,
             type: tType,
-            date: date
+            pdate: pdate,
+            cdate: cdate
       };
 
   var tasks = localStorage.getItem('tasks');

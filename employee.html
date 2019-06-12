@@ -45,9 +45,15 @@
             </a>
           </li>
           <li>
-            <a href="/employee/edit.html">
+            <a href="/employee/eproject.html">
               <i class="pe-7s-edit"></i>
-                <p>Edit Your Status</p>
+                <p>Manage Your Projects</p>
+            </a>
+          </li>
+	    <li>
+            <a href="/employee/etask.html">
+              <i class="pe-7s-edit"></i>
+                <p>Manage Your Tasks</p>
             </a>
           </li>
           <li>
@@ -124,9 +130,9 @@
                               </ul>
                         </li> -->
               <li>
-                <a onclick="logout()">
+                <a href="index.html" onclick= "logout()">
                   <p>Log out</p>
-                </a>
+		</a>
               </li>
 						<li class="separator hidden-lg"></li>
           </ul>
@@ -354,7 +360,7 @@
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
 	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
+	<!-- <script src="assets/js/chartist.min.js"></script> -->
 
   <!--  Notifications Plugin    -->
   <script src="assets/js/bootstrap-notify.js"></script>
@@ -366,7 +372,7 @@
 	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+	<!-- <script src="assets/js/demo.js"></script> -->
 
 	<script type="text/javascript">
     $(document).ready(function(){
@@ -384,7 +390,7 @@
     	});
 
 	function logout(){
-		
+		localStorage.removeItem('loggedUserId');
 	}
 	</script>
 </html>
