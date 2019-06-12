@@ -18,22 +18,20 @@ function DisplayTable(){
     document.getElementById('tasksTable').innerHTML=
     "<label>Select a project please</label>";
   }
-  var index = 0;
-  getTasks.map(task => {
-    if (task.projectname == selectValue) {
-      tasksTableInnerHtml += `
-       <tr id= ${++index} data-toggle='modal' data-target='#trModal' onclick="forId(this)">
-            <td> ${task.name} </td>
-            <td> ${task.type} </td>
-            <td> ${task.status} </td>
-            <td> ${task.assignedTo} </td>
-            <td> ${task.status} </td>
-            <td> ${task.pdate} </td>
-       </tr>`;
+  for (var i = 0; i < getTasks.length; i++) {
+
+        if (getTasks[i].projectname == selectValue) {
+                   tasksTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
+      tasksTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
+      tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
+      tasksTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
+      tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
+      tasksTableInnerHtml += "<td>" + getTasks[i].rmhrs + "</td>";
+      tasksTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
         document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
     }
   }
-)
+
 }
 
 //Modal innerHTML
@@ -117,7 +115,7 @@ function forId(clickedId){
    <label class='col-form-label col-sm-3'>`+getTasks[taskId].pdate+`</label>
    </div>
    <div class='form-group row'>
-   <label for='taskCdate'  class='col-form-label col-sm-3'>Closed Date</label>
+   <label for='taskCdate'  class='col-form-label col-sm-3'>Closing Date</label>
    <label  for='taskCdate' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].cdate+`</label>
    <div class='col-sm-3'>
    <input type='date' class='toHide form-control' id='taskCdate' value='`+getTasks[taskId].cdate+`'>

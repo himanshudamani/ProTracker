@@ -32,10 +32,10 @@ function empTable(){
       EmpTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
       EmpTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
-      EmpTableInnerHtml += "<td>" + getTasks[i].atatus + "</td>";
+      EmpTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].projectname + "</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].orighrs + "</td>";
-      EmpTableInnerHtml += "<td>" + getTasks[i].date + "</td></tr>";
+      EmpTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
 
       document.getElementById('EmpTable').innerHTML = EmpTableInnerHtml;
     }

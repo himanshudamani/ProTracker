@@ -32,7 +32,7 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
             projectname: tPro,
             assignedTo: tAssignedTo,
             orighrs: orighours,
-            workedhrs: '0',
+            workedhrs: '00:00',
             rmhrs: orighours,
             type: tType,
             pdate: pdate,
