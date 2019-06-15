@@ -88,8 +88,10 @@ function checkMang(){
   var userName = document.getElementById('MangUname').value;
   var Pw = document.getElementById('MangPw').value;
 
-  if (userName == 'himanshu') {
+  if (userName == 'Himanshu') {
     document.getElementById('mangForm').action = "/manager.html";
+    var managerName = userName;
+    localStorage.setItem('managerName',JSON.stringify(managerName));
   }
 }
 </script>
