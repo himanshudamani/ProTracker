@@ -75,7 +75,7 @@ password = employee -->
 
     for (var i = 0; i < getUsers.length; i++) {
     if (getUsers[i].username == userName && getUsers[i].password == Pw) {
-    document.getElementById('empForm').action = "/employee.html";
+    document.getElementById('empForm').action = "../employee.html";
     var loggedUserId = getUsers[i].id;
     localStorage.setItem('loggedUserId', JSON.stringify(loggedUserId));
     }
@@ -89,7 +89,7 @@ function checkMang(){
   var Pw = document.getElementById('MangPw').value;
 
   if (userName == 'Himanshu') {
-    document.getElementById('mangForm').action = "/manager.html";
+    document.getElementById('mangForm').action = "../manager.html";
     var managerName = userName;
     localStorage.setItem('managerName',JSON.stringify(managerName));
   }
