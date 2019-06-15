@@ -29,12 +29,16 @@ function empTable(){
   }
   for (var i = 0; i < getTasks.length; i++) {
     if (getTasks[i].assignedTo == selectedEmp) {
+          var workedhrs = getTasks[i].workedhrs;
+          var rmhrs = getTasks[i].rmhrs;
+          var total = addTimes(workedhrs, rmhrs);
+          var percentage=(100 * totalSeconds(workedhrs) / totalSeconds(total)).toFixed(2);
       EmpTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
       EmpTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].projectname + "</td>";
-      EmpTableInnerHtml += "<td>" + getTasks[i].orighrs + "</td>";
+      EmpTableInnerHtml += "<td>" + percentage + "%</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
 
       document.getElementById('EmpTable').innerHTML = EmpTableInnerHtml;
@@ -168,19 +172,6 @@ function editTask(){
   var Pdate = document.getElementById('taskPdate').value;
   var Cdate = document.getElementById('taskCdate').value;
 
-  // var task = {
-  //   name: tName,
-  //   description: tDesc,
-  //   status: tStatus,
-  //   projectname: tPro,
-  //   assignedTo: tAssignedTo,
-  //   orighrs: orighours,
-  //   workedhrs: workedhrs,
-  //   rmhrs: rmhrs,
-  //   type: tType,
-  //   posteddate: Pdate,
-  //   closeddate: Cdate
-  // };
   var tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks[taskId].name = tName;
   tasks[taskId].description = tDesc;
@@ -196,4 +187,23 @@ function editTask(){
   localStorage.setItem('tasks', JSON.stringify(tasks));
     Button.textContent = 'Edit';
   }
+}
+
+//time play
+function totalSeconds(time){
+    var parts = time.split(':');
+    return parts[0] * 3600 + parts[1] * 60;
+}
+function timeFromMins(mins) {
+      function z(n){return (n<10? '0':'') + n;}
+      var h = (mins/60 |0) % 24;
+      var m = mins % 60;
+      return z(h) + ':' + z(m);
+}
+function timeToMins(time) {
+  var b = time.split(':');
+  return b[0]*60 + +b[1];
+}
+function addTimes(t0, t1) {
+      return timeFromMins(timeToMins(t0) + timeToMins(t1));
 }

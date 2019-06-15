@@ -51,7 +51,6 @@ function timeToMins(time) {
   var b = time.split(':');
   return b[0]*60 + +b[1];
 }
-// Add two times in hh:mm format
 function addTimes(t0, t1) {
       return timeFromMins(timeToMins(t0) + timeToMins(t1));
 }
