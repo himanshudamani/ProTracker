@@ -193,7 +193,7 @@
 	      		    		</div>
 			    		</div>
 
-					<!-- <div id="piechart_3d" style="width: 900px; height: 500px;"></div> -->
+					<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
 	                <!-- <div class="row">
 	                    <div class="col-md-6">
 	                        <div class="card ">
@@ -372,6 +372,8 @@
 		<!-- <script src="assets/js/demo.js"></script> -->
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+
 		<script type="text/javascript">
 	    		$(document).ready(function(){
 	      		demo.initChartist();
@@ -392,19 +394,17 @@
 	      	google.charts.load("current", {packages:["corechart"]});
 	      	google.charts.setOnLoadCallback(drawChart);
 	      	function drawChart() {
-				var getPro = JSON.parse(localStorage.getItem("projects")).map(
-					project =>
-					[['Employee', 'Number Of Project'],
-					['$(project.assignedTo)', 2 ]]
-				);
-				// var piedata =[
-	        //       ['Task', 'Hours per Day'],
-	        //       ['Work',     1],
-	        //       ['Eat',      3],
-	        //       ['Watch TV', 3],
-	        //       ['Sleep',    17]
-		  // ];
-	        		var data = google.visualization.arrayToDataTable(getPro);
+				var projectCount = _.countBy(_.map(JSON.parse(localStorage.getItem("projects")), project => project.assignedTo))
+				var piedata = _.concat([['Task', 'No of projects']] ,_.zip(_.keys(projectCount), _.values(projectCount)))
+				console.log(piedata)
+		// 		var piedata =[
+	    //           ['Task', 'Hours per Day'],
+	    //           ['Work',     1],
+	    //           ['Eat',      3],
+	    //           ['Watch TV', 3],
+	    //           ['Sleep',    17]
+		//   ];
+	        		var data = google.visualization.arrayToDataTable(piedata);
 	        		var options = {
 	          			title: 'Number of Projects Assigned',
 	          			is3D: true,
