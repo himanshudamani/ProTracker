@@ -20,7 +20,12 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
   var tAssignedTo = document.getElementById('tAssignedToInput').value;
   var orighours = document.getElementById('orighoursInput').value;
   var tType = document.getElementById('tType').value;
+  //date
   var pdate = new Date();
+  var dd = String(pdate.getDate()).padStart(2, '0');
+  var mm = String(pdate.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = pdate.getFullYear();
+  pdate = mm + '/' + dd + '/' + yyyy;
   var id = (new Date).getTime();
   var cdate = document.getElementById('tCdate').value;
 

@@ -1,8 +1,3 @@
-//logout
-function logout(){
-      localStorage.removeItem('loggedUserId');
-}
-
 var taskId;
 var getTasks;
 

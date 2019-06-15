@@ -173,7 +173,7 @@
 	                			</div> -->
 
 			    		<div class="row">
-				    		<div class="col-md-8">
+				    		<div class="col-md-7">
 	      			    		<div class="card">
 	            		    			<div class="header">
 	            		    				<h4 class="title">Projects Assigned To You</h4>
@@ -191,34 +191,22 @@
 	            					</div>
 	            		    		</div>
 	      		    		</div>
+						<div class="col-md-5">
+	    					  <div class="card ">
+	    						  <div class="header">
+	    							  <h4 class="title">No. of Projects Per Employee</h4>
+	    						  </div>
+	    						  <div class="content">
+	    							  <div id="piechart_3d"></div>
+	    						  </div>
+	    					  </div>
 			    		</div>
 
-					<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-	                <!-- <div class="row">
-	                    <div class="col-md-6">
-	                        <div class="card ">
-	                            <div class="header">
-	                                <h4 class="title">2014 Sales</h4>
-	                                <p class="category">All products including Taxes</p>
-	                            </div>
-	                            <div class="content">
-	                                <div id="chartActivity" class="ct-chart"></div>
+	                <div class="row">
 
-	                                <div class="footer">
-	                                    <div class="legend">
-	                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-	                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
-	                                    </div>
-	                                    <hr>
-	                                    <div class="stats">
-	                                        <i class="fa fa-check"></i> Data information certified
-	                                    </div>
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
+  				  </div>
 
-	                    <div class="col-md-6">
+	                    <!-- <div class="col-md-6">
 	                        <div class="card ">
 	                            <div class="header">
 	                                <h4 class="title">Tasks</h4>
@@ -342,8 +330,8 @@
 	                                    </div>
 	                                </div>
 	                            </div>
-	                        </div>
-	                  </div>-->
+	                        </div> -->
+	                  </div>
 	            </div>
 
 	      			</div>
@@ -369,63 +357,10 @@
 
 		<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
-		<!-- <script src="assets/js/demo.js"></script> -->
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
 
-		<script type="text/javascript">
-	    		$(document).ready(function(){
-	      		demo.initChartist();
-
-	      		$.notify({
-	        			icon: 'pe-7s-gift',
-	        			message: "Welcome to <b>ProTracker</b> -A Simplified Project Tracker Web-App."
-	            	},{
-	                		type: 'info',
-	                		timer: 4000
-	            	});
-	    		});
-
-			function logout(){
-				localStorage.removeItem('loggedUserId');
-			}
-
-	      	google.charts.load("current", {packages:["corechart"]});
-	      	google.charts.setOnLoadCallback(drawChart);
-	      	function drawChart() {
-				var projectCount = _.countBy(_.map(JSON.parse(localStorage.getItem("projects")), project => project.assignedTo))
-				var piedata = _.concat([['Task', 'No of projects']] ,_.zip(_.keys(projectCount), _.values(projectCount)))
-	        		var data = google.visualization.arrayToDataTable(piedata);
-	        		var options = {
-	          			title: 'Number of Projects Assigned',
-	          			is3D: true,
-	        		};
-	        		var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-	        		chart.draw(data, options);
-	      	}
-
-			var loggedUserId = localStorage.getItem('loggedUserId');
-			var users = JSON.parse(localStorage.getItem("users")) ;
-			var projectTable ='';
-			for (var i = 0; i < users.length; i++) {
-		      	if (users[i].id == loggedUserId) {
-		            	var user = users[i].name;
-		      	}
-			}
-			var projects = JSON.parse(localStorage.getItem("projects"));
-			for (var i = 0; i < projects.length; i++) {
-				if (projects[i].assignedTo == user) {
-					projectTable +="<tr>";
-					projectTable +="<td>"+projects[i].name+"</td>";
-					projectTable +="<td>"+projects[i].status+"</td>";
-					projectTable +="<td>"+projects[i].pdate+"</td></tr>";
-				}
-				else {
-					projectTable="<div class='alert alert-danger' role='alert''><strong>Oh snap..!</strong> No Projects Are Assigned To You</div>";
-				}
-			}
-			document.getElementById('projectTable').innerHTML = projectTable;
-
-    </script>
+		<script src="../employee.js"></script>
+		<script src="../employee/js/logout.js"></script>
 </html>

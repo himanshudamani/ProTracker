@@ -136,3 +136,14 @@ function deleteProject(){
       localStorage.setItem('projects', JSON.stringify(projects));
       window.location.reload();
 }
+
+var workLoad ='';
+var tasks = JSON.parse(localStorage.getItem("tasks"));
+var users = JSON.parse(localStorage.getItem("users"));
+
+for (var i = 0; i < projects.length; i++) {
+      workLoad +="<tr>";
+      workLoad +="<td>"+tasks[i].name+"</td>";
+      workLoad +="<td>"+tasks[i].status+"</td></tr>";
+}
+document.getElementById('workLoad').innerHTML = workLoad;

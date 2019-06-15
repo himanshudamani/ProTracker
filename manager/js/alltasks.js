@@ -21,14 +21,18 @@ function DisplayTable(){
   for (var i = 0; i < getTasks.length; i++) {
 
         if (getTasks[i].projectname == selectValue) {
-                   tasksTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].rmhrs + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
-        document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
+             var workedhrs = getTasks[i].workedhrs;
+             var rmhrs = getTasks[i].rmhrs;
+             var total = moment.utc(rmhrs).add(workedhrs);
+             var percentage;
+            tasksTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
+            tasksTableInnerHtml += "<td>" + total + "%</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
+              document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
     }
   }
 

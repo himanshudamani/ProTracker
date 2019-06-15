@@ -1,8 +1,3 @@
-function logout(){
-      localStorage.removeItem('loggedUserId');
-}
-
-
 //Select Project Dropdown
 var loggedUserId = localStorage.getItem('loggedUserId');
 var users = JSON.parse(localStorage.getItem("users")) ;
