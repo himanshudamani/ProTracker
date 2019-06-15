@@ -56,8 +56,10 @@ for (var i = 0; i < projects.length; i++) {
 }
 document.getElementById('projectTable').innerHTML = projectTable;
 
+var projectId;
+
 function projectModal(clickedId){
-      var projectId = clickedId.id;
+      projectId = clickedId.id;
       var getProjects = JSON.parse(localStorage.getItem("projects"));
       var projectDetails =
       `<form>
@@ -122,7 +124,7 @@ function SaveProject(){
       projects[projectId].cdate = pcdate;
 
       localStorage.setItem('projects', JSON.stringify(projects));
-
+      window.location.reload();
 }
 
 var deleteId

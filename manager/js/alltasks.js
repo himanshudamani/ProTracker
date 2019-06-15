@@ -21,21 +21,39 @@ function DisplayTable(){
   for (var i = 0; i < getTasks.length; i++) {
 
         if (getTasks[i].projectname == selectValue) {
+
              var workedhrs = getTasks[i].workedhrs;
              var rmhrs = getTasks[i].rmhrs;
-             var total = moment.utc(rmhrs).add(workedhrs);
-             var percentage;
+             var total = addTimes(workedhrs, rmhrs);
+             var percentage=(100 * totalSeconds(workedhrs) / totalSeconds(total)).toFixed(2);
             tasksTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
             tasksTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
-            tasksTableInnerHtml += "<td>" + total + "%</td>";
+            tasksTableInnerHtml += "<td>" + percentage + "%</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
               document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
     }
   }
-
+}
+function totalSeconds(time){
+    var parts = time.split(':');
+    return parts[0] * 3600 + parts[1] * 60;
+}
+function timeFromMins(mins) {
+      function z(n){return (n<10? '0':'') + n;}
+      var h = (mins/60 |0) % 24;
+      var m = mins % 60;
+      return z(h) + ':' + z(m);
+}
+function timeToMins(time) {
+  var b = time.split(':');
+  return b[0]*60 + +b[1];
+}
+// Add two times in hh:mm format
+function addTimes(t0, t1) {
+      return timeFromMins(timeToMins(t0) + timeToMins(t1));
 }
 
 //Modal innerHTML
