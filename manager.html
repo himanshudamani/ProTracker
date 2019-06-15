@@ -136,25 +136,12 @@
 	                			<div class="row">
 	                    			<div class="col-md-4">
 	                        			<div class="card">
-	                            				<div class="header">
-	                                				<h4 class="title">Project Statistics</h4>
-	                          					<p class="category">Last Project Tasks</p>
+									<div class="header">
+	                                				<h4 class="title">Tasks Statistics</h4>
 	                            				</div>
 	                            				<div class="content">
-	                                				<div id="chartPreferences" class="ct-chart ct-perfect-fourth">
-										</div>
-	                                				<div class="footer">
-	                                    				<div class="legend">
-	                                        					<i class="fa fa-circle text-info"></i> Open
-	                                        					<i class="fa fa-circle text-danger"></i> In Process
-	                                        					<i class="fa fa-circle text-warning"></i> Closed
-	                                    				</div>
-	                                    				<hr>
-	                                    				<div class="stats">
-	                                        					<i class="fa fa-clock-o"></i> Project sent 2 days ago
-	                                    				</div>
-	                                				</div>
-	                            				</div>
+										<div id="piechart_3d1"></div>
+	                        				</div>
 	                        			</div>
 	                    			</div>
 
@@ -179,28 +166,17 @@
 	                    			</div>
 	                			</div>
 
-	                			<!-- <div class="row">
+	                			<div class="row">
 	                    			<div class="col-md-6">
-	                        			<div class="card ">
-	                            				<div class="header">
-	                                				<h4 class="title">2014 Sales</h4>
-	                                				<p class="category">All products including Taxes</p>
-	                            				</div>
-	                            				<div class="content">
-	                                				<div id="chartActivity" class="ct-chart"></div>
-	                                				<div class="footer">
-	                                    				<div class="legend">
-					                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-					                                        <i class="fa fa-circle text-danger"></i> BMW 5 Series
-					                                    </div>
-	                                    				<hr>
-	                                    				<div class="stats">
-	                                        					<i class="fa fa-check"></i> Data information certified
-	                                    				</div>
-	                                				</div>
-	                            				</div>
-	                        			</div>
-	                    			</div>
+								<div class="card ">
+									<div class="header">
+										<h4 class="title">No. of Projects Per Employee</h4>
+									</div>
+									<div class="content">
+										<div id="piechart_3d"></div>
+									</div>
+								</div>
+							</div>
 
 	                    			<div class="col-md-6">
 	                        			<div class="card ">
@@ -327,9 +303,43 @@
 	                            				</div>
 	                        			</div>
 	                    			</div>
-	                			</div> -->
+	                			</div>
 	    				</div>
 	  			</div>
+
+				<!-- Project Edit Modal -->
+				<div id="projectModal" class="modal fade" role="dialog">
+					<div class="modal-dialog modal-lg" role="content">
+					<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Edit Project Details</h4>
+							</div>
+							<div class="modal-body" id="projectDetails">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-md" id="SaveProject" onclick="SaveProject()"><i class="pe-7s-pen"></i>Save Changes</button>
+								<button type="button" class="btn btn-md" data-dismiss="modal"><i class="pe-7s-close"></i>Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Project Modal end -->
+				<div id="projectDelete" class="modal fade" role="dialog">
+					<div class="modal-dialog modal-lg" role="content">
+						<div class="modal-content">
+							<div class="modal-body">
+							    	Are you sure?
+							  </div>
+							  <div class="modal-footer">
+							    	<button type="button" class="btn btn-primary" id="deleteProject" onclick="deleteProject()">Delete</button>
+							    	<button type="button" data-dismiss="modal" class="btn">Cancel</button>
+							  </div>
+						  </div>
+					  </div>
+				</div>
+				<!-- modal end -->
 
 	  			<footer class="footer">
 	  			</footer>
@@ -353,26 +363,10 @@
 		<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 		<script src="assets/js/demo.js"></script>
 
-		<script type="text/javascript">
-	    		$(document).ready(function(){
-	        		demo.initChartist();
-	        		$.notify({
-	            		icon: 'pe-7s-gift',
-	            		message: "Welcome to <b>ProTracker</b> -A Simplified Project Tracker Web-App."
-	            	},{
-	                		type: 'info',
-	                		timer: 4000
-	            	});
-	    		});
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-			var projectTable ='';
-			var projects = JSON.parse(localStorage.getItem("projects"));
-			for (var i = 0; i < projects.length; i++) {
-				projectTable +="<tr>";
-				projectTable +="<td>"+projects[i].name+"</td>";
-				projectTable +="<td>"+projects[i].status+"</td>";
-				projectTable +="<td>"+projects[i].pdate+"</td></tr>";
-			}
-			document.getElementById('projectTable').innerHTML = projectTable;
-		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+
+		<script src="../manager.js"></script>
+
 </html>

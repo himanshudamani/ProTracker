@@ -396,14 +396,6 @@
 	      	function drawChart() {
 				var projectCount = _.countBy(_.map(JSON.parse(localStorage.getItem("projects")), project => project.assignedTo))
 				var piedata = _.concat([['Task', 'No of projects']] ,_.zip(_.keys(projectCount), _.values(projectCount)))
-				console.log(piedata)
-		// 		var piedata =[
-	    //           ['Task', 'Hours per Day'],
-	    //           ['Work',     1],
-	    //           ['Eat',      3],
-	    //           ['Watch TV', 3],
-	    //           ['Sleep',    17]
-		//   ];
 	        		var data = google.visualization.arrayToDataTable(piedata);
 	        		var options = {
 	          			title: 'Number of Projects Assigned',

@@ -154,7 +154,6 @@ function editTask(){
   var workedhrs = document.getElementById('taskWrkhrs').value;
   var rmhrs = document.getElementById('taskRmhrs').value;
   var tType = document.getElementById('taskType').value;
-  //var Pdate = document.getElementById('taskPdate').value;
   var Cdate = document.getElementById('taskCdate').value;
 
   var tasks = JSON.parse(localStorage.getItem('tasks'));
