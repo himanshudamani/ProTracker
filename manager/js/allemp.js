@@ -117,9 +117,9 @@ function forId(clickedId){
   </div>
   <div class='form-group row'>
   <label for='taskRmhrs'  class='col-form-label col-sm-3'>Remaining Hours</label>
-  <label  for='taskRmhrs' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].orighrs+`</label>
+  <label  for='taskRmhrs' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].rmhrs+`</label>
   <div class='col-sm-3'>
-  <input type='time' class='toHide form-control' id='taskRmhrs' value=' `+getTasks[taskId].orighrs+`'>
+  <input type='time' class='toHide form-control' id='taskRmhrs' value=' `+getTasks[taskId].rmhrs+`'>
   </div>
   </div>
   <div class='form-group row'>
@@ -180,7 +180,7 @@ function editTask(){
   tasks[taskId].assignedTo = tAssignedTo;
   tasks[taskId].orighrs = orighours;
   tasks[taskId].workedhrs = workedhrs;
-  tasks[taskId].type = rmhrs;
+  tasks[taskId].rmhrs = rmhrs;
   tasks[taskId].type = tType;
   tasks[taskId].pdate = Pdate;
   tasks[taskId].cdate = Cdate;

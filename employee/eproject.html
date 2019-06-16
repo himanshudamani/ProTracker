@@ -19,7 +19,11 @@
 
   <!--  Light Bootstrap Table core CSS    -->
   <link href="../assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
-
+  <style>
+  	.toHide{
+  		display: none;
+  	}
+  </style>
   <!--     Fonts and icons     -->
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -86,16 +90,11 @@
                                     <i class="fa fa-globe"></i>
                                     <b class="caret hidden-lg hidden-md"></b>
 									<p class="hidden-lg hidden-md">
-										5 Notifications
+										Notifications
 										<b class="caret"></b>
 									</p>
                         </a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Notification 1</a></li>
-                          <li><a href="#">Notification 2</a></li>
-                          <li><a href="#">Notification 3</a></li>
-                          <li><a href="#">Notification 4</a></li>
-                          <li><a href="#">Another notification</a></li>
+                        <ul class="dropdown-menu" id="notify">
                         </ul>
                   </li>
 

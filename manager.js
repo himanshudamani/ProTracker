@@ -143,9 +143,30 @@ var workLoad ='';
 var tasks = JSON.parse(localStorage.getItem("tasks"));
 var users = JSON.parse(localStorage.getItem("users"));
 
-for (var i = 0; i < projects.length; i++) {
+for (var i = 0; i < users.length; i++) {
+      var rmhrs ="00:00";
+      for (var j = 0; j < tasks.length; j++) {
+            if (tasks[j].assignedTo== users[i].name) {
+                  var newhrs = tasks[i].rmhrs;
+                  rmhrs = addTimes(rmhrs, newhrs);
+            }
+      }
       workLoad +="<tr>";
-      workLoad +="<td>"+tasks[i].name+"</td>";
-      workLoad +="<td>"+tasks[i].status+"</td></tr>";
+      workLoad +="<td>"+users[i].name+"</td>";
+      workLoad +="<td>"+rmhrs+"</td></tr>";
 }
 document.getElementById('workLoad').innerHTML = workLoad;
+
+function timeFromMins(mins) {
+      function z(n){return (n<10? '0':'') + n;}
+      var h = (mins/60 |0) % 24;
+      var m = mins % 60;
+      return z(h) + ':' + z(m);
+}
+function timeToMins(time) {
+  var b = time.split(':');
+  return b[0]*60 + +b[1];
+}
+function addTimes(t0, t1) {
+      return timeFromMins(timeToMins(t0) + timeToMins(t1));
+}
