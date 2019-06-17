@@ -5,13 +5,28 @@ A Simple Project Tracker WebApp (On Process)
   For Manager
   And For Employee*
 
-> Manager are assigned manually and can:
+> Managers are assigned manually
 
-- Add Project
-- Add Tasks to stored projects
-- Add Employees For ProTracker
-- Tasks can be Assigned to an employee
+Manager Dashboard Features:
+- Gantt Charts For Projects And Tasks
+- All Projects Status with Edit/Delete options
+- Pie Chart of Task Statistics (Showing % of task InProcess and Closed)
+- Work Load per Employee (Table Shown in Hours)
+- Pie Chart of Number of Projects Per Employee
+
+Tasks Can be Performed by Manager:
+- Add Employees (who can access ProTracker Employee Login)
+- Add Projects
+- Add Tasks to stored Projects
+- And Tasks can be Assigned to an employee
 - Can View and edit stored tasks in two ways: Project-wise and Employee-wise
 
+Employee Dashboard Features:
+- All Projects assigned to that Employee
+- Pending Tasks of that Employee
+- Pie Chart of Number of Projects Per Employee
+- Gantt Charts of there Tasks
 
-(More To be updated soon)
+Tasks Can be Performed by Employees:
+- Manage(Edit/Assign) their Projects
+- Manage(Worked Hours) of there Tasks
