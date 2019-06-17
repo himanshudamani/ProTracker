@@ -128,11 +128,31 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="header">
-								<h4 class="title">Gantt Chart<h4>
+								<h4 class="title">Projects Gantt Chart<h4>
 							</div>
 							<div class="content">
-								<div id="chart_div"></div>
+								<div id="pro_chart_div"></div>
 							</div>
+							<div class="btn-group mt-3 mx-auto" role="group">
+      							<button type="button" class="btn btn-sm btn-light" onclick="dayWise()">Day</button>
+      							<button type="button" class="btn btn-sm btn-light" onclick="weekWise()">Week</button>
+      							<button type="button" class="btn btn-sm btn-light active" onclick="monthWise()">Month</button>
+    							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="card">
+							<div class="header">
+								<h4 class="title">Tasks Gantt Chart<h4>
+							</div>
+							<div class="content">
+								<div id="task_chart_div"></div>
+							</div>
+							<div class="btn-group mt-3 mx-auto" role="group">
+      							<button type="button" class="btn btn-sm btn-light" onclick="dayWise2()">Day</button>
+      							<button type="button" class="btn btn-sm btn-light" onclick="weekWise2()">Week</button>
+      							<button type="button" class="btn btn-sm btn-light active" onclick="monthWise2()">Month</button>
+    							</div>
 						</div>
 					</div>
 				</div>
