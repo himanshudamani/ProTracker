@@ -11,6 +11,7 @@ function savePro() {
   var yyyy = pdate.getFullYear();
   pdate = mm + '/' + dd + '/' + yyyy;
   var id = (new Date).getTime();
+  var sdate = document.getElementById('proSdate').value;
   var cdate = document.getElementById('proCdate').value;
 
   var project = {
@@ -20,6 +21,7 @@ function savePro() {
     status: proStatus,
     assignedTo: proAssignedTo,
     pdate: pdate,
+    sdate: sdate,
     cdate: cdate
   };
 

@@ -31,15 +31,15 @@ function DisplayTable(){
   for (var i = 0; i < getTasks.length; i++) {
 
         if (getTasks[i].projectname == selectValue) {
-                   tasksTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].rmhrs + "</td>";
-      tasksTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
-        document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
-    }
+            tasksTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].rmhrs + "</td>";
+            tasksTableInnerHtml += "<td>" + getTasks[i].sdate + "</td></tr>";
+            document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
+      }
   }
 
 }
@@ -125,6 +125,13 @@ function forId(clickedId){
    <label class='col-form-label col-sm-3'>`+getTasks[taskId].pdate+`</label>
    </div>
    <div class='form-group row'>
+   <label for='taskSdate'  class='col-form-label col-sm-3'>Closing Date</label>
+   <label  for='taskSdate' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].sdate+`</label>
+   <div class='col-sm-3'>
+   <input type='date' class='toHide form-control' id='taskSdate' value='`+getTasks[taskId].sdate+`'>
+   </div>
+   </div>
+   <div class='form-group row'>
    <label for='taskCdate'  class='col-form-label col-sm-3'>Closing Date</label>
    <label  for='taskCdate' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].cdate+`</label>
    <div class='col-sm-3'>
@@ -164,7 +171,7 @@ function editTask(){
   var workedhrs = document.getElementById('taskWrkhrs').value;
   var rmhrs = document.getElementById('taskRmhrs').value;
   var tType = document.getElementById('taskType').value;
-  //var Pdate = document.getElementById('taskPdate').value;
+  var Sdate = document.getElementById('taskSdate').value;
   var Cdate = document.getElementById('taskCdate').value;
 
   var tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -178,7 +185,7 @@ function editTask(){
   tasks[taskId].workedhrs = workedhrs;
   tasks[taskId].type = rmhrs;
   tasks[taskId].type = tType;
-  //tasks[taskId].pdate = Pdate;
+  tasks[taskId].sdate = Sdate;
   tasks[taskId].cdate = Cdate;
 
   localStorage.setItem('tasks', JSON.stringify(tasks));

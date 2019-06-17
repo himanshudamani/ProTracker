@@ -9,7 +9,8 @@
 
 		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	  	<meta name="viewport" content="width=device-width" />
-
+		<script src="../gantt-master/dist/frappe-gantt.min.js"></script>
+		<link rel="stylesheet" href="../gantt-master/dist/frappe-gantt.css">
 
 	  	<!-- Bootstrap core CSS     -->
 	  	<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -109,10 +110,10 @@
 						<div class="col-md-12">
 							<div class="card">
 								<div class="header">
-									<h4 class="title">Projects Gantt Chart<h4>
+									<h4 class="title">Tasks Gantt Chart<h4>
 								</div>
 								<div class="content">
-									<div id="pro_chart_div"></div>
+									<div id="task_chart_div"></div>
 								</div>
 								<div class="btn-group mt-3 mx-auto" role="group">
 	      							<button type="button" class="btn btn-sm btn-light" onclick="dayWise()">Day</button>
@@ -141,14 +142,11 @@
 	    	<!--  Notifications Plugin    -->
 	    	<script src="../assets/js/bootstrap-notify.js"></script>
 
-	    	<!--  Google Maps Plugin    -->
-	    	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-
 	    	<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 		<script src="../assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 		<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 		<script src="../assets/js/demo.js"></script>
-
+		<script src="../employee/js/egantt.js"></script>
 		<script src="../employee/js/logout.js"></script>
 </html>

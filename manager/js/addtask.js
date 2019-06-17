@@ -27,6 +27,7 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
   var yyyy = pdate.getFullYear();
   pdate = mm + '/' + dd + '/' + yyyy;
   var id = (new Date).getTime();
+  var sdate = document.getElementById('tSdate').value;
   var cdate = document.getElementById('tCdate').value;
 
   var task = {
@@ -41,6 +42,7 @@ document.getElementById('tProInput').innerHTML = ProInputinnerHtml;
             rmhrs: orighours,
             type: tType,
             pdate: pdate,
+            sdate: sdate,
             cdate: cdate
       };
 

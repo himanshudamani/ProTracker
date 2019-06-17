@@ -39,13 +39,14 @@ function drawChart() {
       chart.draw(data, options);
 }
 
+//projectTable
 var projectTable ='';
 var projects = JSON.parse(localStorage.getItem("projects"));
 for (var i = 0; i < projects.length; i++) {
       projectTable +="<tr>";
       projectTable +="<td>"+projects[i].name+"</td>";
       projectTable +="<td>"+projects[i].status+"</td>";
-      projectTable +="<td>"+projects[i].pdate+`</td><td class="td-actions text-right">
+      projectTable +="<td>"+projects[i].sdate+`</td><td class="td-actions text-right">
             <button type="button" rel="tooltip" title="Edit Project" class="btn btn-info btn-simple btn-xs" id='`+ i +`' data-toggle='modal' data-target='#projectModal' onclick='projectModal(this)'>
                   <i class="fa fa-edit"></i>
             </button>
@@ -80,7 +81,7 @@ function projectModal(clickedId){
       <div class='col-sm-6'>
       <select class='form-control' id='projectStatus'>
             <option value='Open'>Open</option>
-            <option value='Inprocess'>InProcess</option>
+            <option value='InProcess'>InProcess</option>
             <option value='Closed'>Closed</option>
       </select>
       </div>
@@ -95,6 +96,12 @@ function projectModal(clickedId){
       <label for='projectpdate' class='col-form-label col-sm-4'>Posted Date</label>
       <div class='col-sm-4'>
       <label for='projectpdate'  class='col-form-label'>`+getProjects[projectId].pdate+`</label>
+      </div>
+      </div>
+      <div class='form-group row'>
+      <label for='projectsdate' class='col-form-label col-sm-4'>Starting Date</label>
+      <div class='col-sm-6'>
+      <input type='date' class='form-control' id='projectsdate' value='`+getProjects[projectId].sdate+`'>
       </div>
       </div>
       <div class='form-group row'>
@@ -113,6 +120,7 @@ function SaveProject(){
       var pDesc = document.getElementById('projectDesc').value;
       var pStatus = document.getElementById('projectStatus').value;
       var pAssignedTo = document.getElementById('projectATo').value;
+      var psdate = document.getElementById('projectsdate').value;
       var pcdate = document.getElementById('projectcdate').value;
 
       var projects = JSON.parse(localStorage.getItem('projects'));
@@ -121,6 +129,7 @@ function SaveProject(){
       projects[projectId].description = pDesc;
       projects[projectId].status = pStatus;
       projects[projectId].assignedTo = pAssignedTo;
+      projects[projectId].sdate = psdate;
       projects[projectId].cdate = pcdate;
 
       localStorage.setItem('projects', JSON.stringify(projects));

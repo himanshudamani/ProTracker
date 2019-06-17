@@ -21,7 +21,7 @@ for (var i = 0; i < getTasks.length; i++) {
             EmpTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
             EmpTableInnerHtml += "<td>" + getTasks[i].projectname + "</td>";
             EmpTableInnerHtml += "<td>" + getTasks[i].orighrs + "</td>";
-            EmpTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
+            EmpTableInnerHtml += "<td>" + getTasks[i].sdate + "</td></tr>";
             document.getElementById('EmpTable').innerHTML = EmpTableInnerHtml;
       }
 }
@@ -80,6 +80,10 @@ function forId(clickedId){
    <div class='form-group row'>
    <label class='col-form-label col-sm-3'>Posted Date</label>
    <label class='col-form-label col-sm-3'>`+getTasks[taskId].pdate+`</label>
+   </div>
+   <div class='form-group row'>
+   <label class='col-form-label col-sm-3'>Starting Date</label>
+   <label class='col-form-label col-sm-3'>`+getTasks[taskId].sdate+`</label>
    </div>
    <div class='form-group row'>
    <label class='col-form-label col-sm-3'>Closed Date</label>

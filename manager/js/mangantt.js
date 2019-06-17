@@ -3,18 +3,28 @@ var projects = JSON.parse(localStorage.getItem("projects"));
 var pro_objects=[];
  for (var i = 0; i < projects.length; i++) {
        var name = projects[i].name;
-       var start = projects[i].pdate;
-       var mm = start[0]+start[1];
-       var dd = start[3]+start[4];
-       var yyyy = start[6]+start[7]+start[8]+start[9];
-       start = yyyy+"-"+mm+"-"+dd;
+       var start = projects[i].sdate;
+       // var mm = start[0]+start[1];
+       // var dd = start[3]+start[4];
+       // var yyyy = start[6]+start[7]+start[8]+start[9];
+       // start = yyyy+"-"+mm+"-"+dd;
+       var progress;
        var end = projects[i].cdate;
+       if (projects[i].status == 'Open') {
+             progress = 100;
+       }
+       else if (projects[i].status == 'InProcess') {
+             progress = 50;
+       }
+       else if(projects[i].status == 'Closed'){
+             progress = 0;
+       }
        var pro_object ={
              id: 'id',
              name: name,
              start: start,
              end: end,
-             progress: 100,
+             progress: progress,
              dependencies: null
       };
       pro_objects.push(pro_object);
@@ -36,17 +46,14 @@ function monthWise(){
 var tasks = JSON.parse(localStorage.getItem("tasks"));
 var task_objects=[];
  for (var i = 0; i < tasks.length; i++) {
+       
        var workedhrs = tasks[i].workedhrs;
        var rmhrs = tasks[i].rmhrs;
        var total = addTimes(workedhrs, rmhrs);
        var percentage=(100 * totalSeconds(workedhrs) / totalSeconds(total)).toFixed(2);
 
        var name = tasks[i].name;
-       var start = tasks[i].pdate;
-       var mm = start[0]+start[1];
-       var dd = start[3]+start[4];
-       var yyyy = start[6]+start[7]+start[8]+start[9];
-       start = yyyy+"-"+mm+"-"+dd;
+       var start = tasks[i].sdate;
        var end = tasks[i].cdate;
        var task_object ={
              id: 'id',

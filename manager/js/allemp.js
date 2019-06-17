@@ -39,7 +39,7 @@ function empTable(){
       EmpTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
       EmpTableInnerHtml += "<td>" + getTasks[i].projectname + "</td>";
       EmpTableInnerHtml += "<td>" + percentage + "%</td>";
-      EmpTableInnerHtml += "<td>" + getTasks[i].pdate + "</td></tr>";
+      EmpTableInnerHtml += "<td>" + getTasks[i].sdate + "</td></tr>";
 
       document.getElementById('EmpTable').innerHTML = EmpTableInnerHtml;
     }
@@ -124,16 +124,20 @@ function forId(clickedId){
   </div>
   <div class='form-group row'>
   <label for='taskPdate'  class='col-form-label col-sm-3'>Posted Date</label>
-  <label  for='taskPdate' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].pdate+`</label>
+  <label  for='taskPdate' class='col-form-label col-sm-3'>`+getTasks[taskId].pdate+`</label>
+  </div>
+  <div class='form-group row'>
+  <label for='taskSdate'  class='col-form-label col-sm-3'>Closed Date</label>
+  <label  for='taskSdate' class='toShow col-form-label col-sm-3'>"`+getTasks[taskId].sdate+`"</label>
   <div class='col-sm-3'>
-  <input type='date' class='toHide form-control' id='taskPdate' value=' `+getTasks[taskId].pdate+`'>
+  <input type='date' class='toHide form-control' id='taskSdate' value=' `+getTasks[taskId].sdate+`'>
   </div>
   </div>
   <div class='form-group row'>
   <label for='taskCdate'  class='col-form-label col-sm-3'>Closed Date</label>
   <label  for='taskCdate' class='toShow col-form-label col-sm-3'>"`+getTasks[taskId].cdate+`"</label>
   <div class='col-sm-3'>
-  <input type='date' class='toHide form-control' id='taskCdate' value=' `+getTasks[taskId].cdate+`'>
+  <input type='date' class='toHide form-control' id='taskCdate' value='`+getTasks[taskId].cdate+`'>
   </div>
   </div>
   </form>`;
@@ -169,7 +173,7 @@ function editTask(){
   var workedhrs = document.getElementById('taskWrkhrs').value;
   var rmhrs = document.getElementById('taskRmhrs').value;
   var tType = document.getElementById('taskType').value;
-  var Pdate = document.getElementById('taskPdate').value;
+  var Sdate = document.getElementById('taskSdate').value;
   var Cdate = document.getElementById('taskCdate').value;
 
   var tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -182,7 +186,7 @@ function editTask(){
   tasks[taskId].workedhrs = workedhrs;
   tasks[taskId].rmhrs = rmhrs;
   tasks[taskId].type = tType;
-  tasks[taskId].pdate = Pdate;
+  tasks[taskId].sdate = Sdate;
   tasks[taskId].cdate = Cdate;
   localStorage.setItem('tasks', JSON.stringify(tasks));
     Button.textContent = 'Edit';
@@ -206,4 +210,12 @@ function timeToMins(time) {
 }
 function addTimes(t0, t1) {
       return timeFromMins(timeToMins(t0) + timeToMins(t1));
+}
+
+//deleeTask
+function deleteTask(){
+      var tasks = JSON.parse(localStorage.getItem('tasks'));
+      tasks.splice(taskId,1);
+      localStorage.setItem('projects', JSON.stringify(tasks));
+      window.location.reload();
 }
