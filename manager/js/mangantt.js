@@ -1,24 +1,23 @@
 //Project  Gantt Chart
 var projects = JSON.parse(localStorage.getItem("projects"));
+var tasks = JSON.parse(localStorage.getItem("tasks"));
 var pro_objects=[];
  for (var i = 0; i < projects.length; i++) {
        var name = projects[i].name;
        var start = projects[i].sdate;
-       // var mm = start[0]+start[1];
-       // var dd = start[3]+start[4];
-       // var yyyy = start[6]+start[7]+start[8]+start[9];
-       // start = yyyy+"-"+mm+"-"+dd;
-       var progress;
        var end = projects[i].cdate;
-       if (projects[i].status == 'Open') {
-             progress = 100;
+       var totalrmhrs="00:00";
+       var totalwrkhrs="00:00";
+       for (var j = 0; j < tasks.length; j++) {
+             if (tasks[j].projectname == projects[i].name) {
+                   var presentrmhrs = tasks[j].rmhrs;
+                   var presentwrkhrs = tasks[j].workedhrs;
+                   totalrmhrs =  addTimes(totalrmhrs, presentrmhrs);
+                   totalwrkhrs = addTimes(totalwrkhrs, presentwrkhrs);
+             }
        }
-       else if (projects[i].status == 'InProcess') {
-             progress = 50;
-       }
-       else if(projects[i].status == 'Closed'){
-             progress = 0;
-       }
+       var total = addTimes(totalwrkhrs, totalrmhrs);
+        var progress =(100 * totalSeconds(totalwrkhrs) / totalSeconds(total)).toFixed(0);
        var pro_object ={
              id: 'id',
              name: name,
@@ -46,7 +45,7 @@ function monthWise(){
 var tasks = JSON.parse(localStorage.getItem("tasks"));
 var task_objects=[];
  for (var i = 0; i < tasks.length; i++) {
-       
+
        var workedhrs = tasks[i].workedhrs;
        var rmhrs = tasks[i].rmhrs;
        var total = addTimes(workedhrs, rmhrs);
@@ -93,4 +92,22 @@ function weekWise2(){
 }
 function monthWise2(){
       task_gantt.change_view_mode('Month');
+}
+//percentage
+function totalSeconds(time){
+    var parts = time.split(':');
+    return parts[0] * 3600 + parts[1] * 60;
+}
+function timeFromMins(mins) {
+      function z(n){return (n<10? '0':'') + n;}
+      var h = (mins/60 |0) % 24;
+      var m = mins % 60;
+      return z(h) + ':' + z(m);
+}
+function timeToMins(time) {
+  var b = time.split(':');
+  return b[0]*60 + +b[1];
+}
+function addTimes(t0, t1) {
+      return timeFromMins(timeToMins(t0) + timeToMins(t1));
 }

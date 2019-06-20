@@ -31,17 +31,37 @@ function DisplayTable(){
   for (var i = 0; i < getTasks.length; i++) {
 
         if (getTasks[i].projectname == selectValue) {
+             var workedhrs = getTasks[i].workedhrs;
+             var rmhrs = getTasks[i].rmhrs;
+             var total = addTimes(workedhrs, rmhrs);
+             var percentage=(100 * totalSeconds(workedhrs) / totalSeconds(total)).toFixed(2);
             tasksTableInnerHtml+="<tr"+" id='"+ i +"' data-toggle='modal' data-target='#trModal' onclick='forId(this)'>";
             tasksTableInnerHtml += "<td>" + getTasks[i].name + "</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].type + "</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].status + "</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].assignedTo + "</td>";
-            tasksTableInnerHtml += "<td>" + getTasks[i].rmhrs + "</td>";
+            tasksTableInnerHtml += "<td>" + percentage + "%</td>";
             tasksTableInnerHtml += "<td>" + getTasks[i].sdate + "</td></tr>";
             document.getElementById('tasksTable').innerHTML = tasksTableInnerHtml;
       }
   }
-
+}
+function totalSeconds(time){
+    var parts = time.split(':');
+    return parts[0] * 3600 + parts[1] * 60;
+}
+function timeFromMins(mins) {
+      function z(n){return (n<10? '0':'') + n;}
+      var h = (mins/60 |0) % 24;
+      var m = mins % 60;
+      return z(h) + ':' + z(m);
+}
+function timeToMins(time) {
+  var b = time.split(':');
+  return b[0]*60 + +b[1];
+}
+function addTimes(t0, t1) {
+      return timeFromMins(timeToMins(t0) + timeToMins(t1));
 }
 
 //Modal innerHTML
@@ -115,9 +135,9 @@ function forId(clickedId){
    </div>
    <div class='form-group row'>
    <label for='taskRmhrs' class='col-form-label col-sm-3'>Remaining Hours</label>
-   <label for='taskRmhrs' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].orighrs+`</label>
+   <label for='taskRmhrs' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].rmhrs+`</label>
    <div class='col-sm-3'>
-   <input type='time' class='toHide form-control' id='taskRmhrs' value='`+getTasks[taskId].orighrs+`'>
+   <input type='time' class='toHide form-control' id='taskRmhrs' value='`+getTasks[taskId].rmhrs+`'>
    </div>
    </div>
    <div class='form-group row'>
@@ -125,7 +145,7 @@ function forId(clickedId){
    <label class='col-form-label col-sm-3'>`+getTasks[taskId].pdate+`</label>
    </div>
    <div class='form-group row'>
-   <label for='taskSdate'  class='col-form-label col-sm-3'>Closing Date</label>
+   <label for='taskSdate'  class='col-form-label col-sm-3'>Starting Date</label>
    <label  for='taskSdate' class='toShow col-form-label col-sm-3'>`+getTasks[taskId].sdate+`</label>
    <div class='col-sm-3'>
    <input type='date' class='toHide form-control' id='taskSdate' value='`+getTasks[taskId].sdate+`'>
@@ -183,7 +203,7 @@ function editTask(){
   tasks[taskId].assignedTo = tAssignedTo;
   tasks[taskId].orighrs = orighours;
   tasks[taskId].workedhrs = workedhrs;
-  tasks[taskId].type = rmhrs;
+  tasks[taskId].rmhrs = rmhrs;
   tasks[taskId].type = tType;
   tasks[taskId].sdate = Sdate;
   tasks[taskId].cdate = Cdate;
